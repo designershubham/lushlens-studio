@@ -1,0 +1,702 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #222223;
+  --secondary: hsl(0, 0%, 100%);
+  --third: #fff278;
+  --fourth: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.left-layer {
+  background: linear-gradient(270deg, rgba(36, 33, 27, 0) -1%, #222223 77.17%);
+}
+
+.bottom-layer {
+  background: linear-gradient(180deg, rgba(36, 33, 27, 0) -1%, #222223 77.17%);
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  background: var(--primary);
+  font-weight: bolder;
+  color: var(--secondary);
+  z-index: 1;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+
+  border: 1px solid var(--third);
+  border-radius: 10px;
+}
+
+button:hover {
+  color: var(--primary);
+}
+
+button:after {
+  content: "";
+  background: var(--third);
+
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+.floating-buttons{
+  position: absolute;
+  top: 100px;
+}
+
+button:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#login .loginboxes .form input {
+  width: 100%;
+}
+
+/* Trending Professional Services Bento Cards */
+.service-card {
+  position: relative;
+  background: linear-gradient(145deg, #181819 0%, #101011 100%);
+  border: 1px solid rgba(255, 242, 120, 0.2);
+  border-radius: 18px;
+  padding: 30px 26px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--third), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 242, 120, 0.65);
+  box-shadow: 0 20px 40px -12px rgba(255, 242, 120, 0.22);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 242, 120, 0.08);
+  border: 1px solid rgba(255, 242, 120, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--third);
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-box {
+  background: rgba(255, 242, 120, 0.2);
+  border-color: var(--third);
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 0 20px rgba(255, 242, 120, 0.35);
+}
+
+.service-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Trending Our Story Section */
+.story-container {
+  background: linear-gradient(135deg, rgba(26, 26, 28, 0.95) 0%, rgba(18, 18, 20, 0.95) 50%, rgba(12, 12, 14, 0.98) 100%);
+  border: 1px solid rgba(255, 242, 120, 0.22);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 242, 120, 0.05);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.story-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--third), transparent);
+}
+
+.story-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 13px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-feature-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 242, 120, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+}
+
+.story-check-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: 1px;
+  border-radius: 8px;
+  background: rgba(255, 242, 120, 0.1);
+  border: 1px solid rgba(255, 242, 120, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--third);
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.story-feature-item:hover .story-check-icon {
+  background: var(--third);
+  color: #000000;
+  border-color: var(--third);
+  transform: scale(1.08);
+  box-shadow: 0 0 14px rgba(255, 242, 120, 0.4);
+}
+
+.story-feature-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d1d5db;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.story-feature-item:hover .story-feature-text {
+  color: #ffffff;
+}
+
+/* 3D Visual Showcase & Turntable for Our Story (Border-Free & Unclipped) */
+.story-3d-scene {
+  perspective: 1200px;
+  overflow: visible;
+}
+
+.story-camera-stage {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.story-camera-stage:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.camera-turntable-ring {
+  bottom: 55px;
+  left: 50%;
+  width: 320px;
+  height: 80px;
+  transform: translateX(-50%) rotateX(68deg);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 242, 120, 0.35);
+  box-shadow: 0 0 28px rgba(255, 242, 120, 0.22), inset 0 0 20px rgba(255, 242, 120, 0.12);
+}
+
+.camera-turntable-pedestal {
+  bottom: 38px;
+  left: 50%;
+  width: 270px;
+  height: 70px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 242, 120, 0.35) 0%, rgba(255, 242, 120, 0.08) 50%, transparent 75%);
+  filter: blur(8px);
+}
+
+.story-camera-badge {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75), 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+#camera3DContainer {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#camera3DContainer canvas {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+  cursor: grab;
+}
+
+#camera3DContainer canvas:active {
+  cursor: grabbing !important;
+}
+
+.camera-rotate-hud button {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.companies-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.logos {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  animation: 32s slide infinite linear;
+  flex-shrink: 0;
+  padding-right: 18px;
+}
+
+.logos:nth-child(2) .logos-slide {
+  animation-duration: 26s;
+}
+
+.logos:nth-child(3) .logos-slide {
+  animation-duration: 36s;
+}
+
+.logos-slide div {
+  flex-shrink: 0;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  padding: 8px 18px;
+  height: 70px;
+  width: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
+}
+.logos-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.second-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photograph-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: flex-start;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photograph-box {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 16px;
+  column-gap: 16px;
+  width: 100%;
+}
+
+.photograph-box .image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--third);
+}
+
+.photograph-box .image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.photograph-box .image:hover img {
+  transform: scale(1.05);
+}
+
+/* How It Works Accordion Transition */
+.process-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.process-content.open {
+  max-height: 250px;
+  opacity: 1;
+}
+
+.process-item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #18181a;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.process-item.active-item {
+  border-color: rgba(255, 242, 120, 0.55) !important;
+  box-shadow: 0 4px 20px rgba(255, 242, 120, 0.12) !important;
+  background: #1b1b1e;
+}
+
+.process-img {
+  width: 100%;
+  max-width: 320px;
+  height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 4px solid var(--third);
+  box-shadow: 0 0 20px var(--third);
+  position: relative;
+}
+
+.process-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logos-slide {
+    animation: 20s slide infinite linear;
+  }
+  .logos-slide div {
+    padding: 0;
+  }
+  .logos-slide img {
+    width: 100px;
+    aspect-ratio: 4/2;
+  }
+
+  .photograph-box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+
+  .photograph-box .image {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    border-width: 2px;
+  }
+
+  .photograph-box .image img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+
+  .model-photograph .image img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+
+  .open {
+    height: 190px;
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .companies-logo {
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .logos {
+    gap: 0;
+  }
+
+  .logos-slide {
+    animation: 24s slide infinite linear;
+    gap: 12px;
+    padding-right: 12px;
+  }
+
+  .logos:nth-child(2) .logos-slide {
+    animation-duration: 19s;
+  }
+
+  .logos:nth-child(3) .logos-slide {
+    animation-duration: 27s;
+  }
+
+  .logos-slide div {
+    height: 48px;
+    width: 96px;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  .logos-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ============================================================
+   Testimonials & Floating Customer Avatars (150+ Happy Customers)
+   ============================================================ */
+.reviews {
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews .imgbox {
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  border: 2px solid var(--third) !important;
+  box-shadow: 0 0 16px rgba(255, 242, 120, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+  background-color: #111113 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.reviews .imgbox:hover {
+  transform: scale(1.06) !important;
+  box-shadow: 0 0 22px rgba(255, 242, 120, 0.45) !important;
+}
+
+.reviews .imgbox img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 9999px !important;
+}
+
+.comment {
+  width: 100%;
+  max-width: 760px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #18181a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+.comment-moving-box {
+  width: 100%;
+  height: 100%;
+  padding-left: 75px;
+  padding-right: 75px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.comment-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.left-quote,
+.right-quote {
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .comment {
+    height: 280px;
+  }
+  .comment-moving-box {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+/* ============================================================
+   Enquiry / Contact Form (#login)
+   ============================================================ */
+.form-card input {
+  transition: all 0.3s ease;
+}
+
+.form-card input:focus {
+  border-color: var(--third) !important;
+  box-shadow: 0 0 16px rgba(255, 242, 120, 0.3) !important;
+  background-color: #131317 !important;
+}
+
+.form-card button[type="submit"]:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   Camera Lens Themed Modern Footer
+   ============================================================ */
+.camera-lens-footer {
+  position: relative;
+  background: #0a0a0c;
+  border-top: 1px solid rgba(255, 242, 120, 0.25);
+  box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 242, 120, 0.05);
+  overflow: hidden;
+}
+
+.camera-lens-footer .lens-aperture-bg {
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 320px;
+  height: 320px;
+  pointer-events: none;
+  opacity: 0.07;
+  animation: rotateLens 60s linear infinite;
+}
+
+@keyframes rotateLens {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.camera-lens-footer .social-lens-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background: #141418;
+  border: 1.5px solid rgba(255, 242, 120, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.camera-lens-footer .social-lens-btn:hover {
+  border-color: var(--third);
+  color: var(--third);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 0 16px rgba(255, 242, 120, 0.4);
+  background: #1c1c22;
+}
+
+.camera-telemetry-pill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.05em;
+}
+
+
