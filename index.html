@@ -39,15 +39,28 @@
 
 
 
-  <div class=" fixed bottom-4 right-15 flex flex-row space-y-0 z-10">
-    <button class="mx-2 lg:hidden bg-blue-500 text-white p-4 shadow-lg hover:bg-blue-700 transition">
-      <i class="fas fa-phone px-2"></i> <a href="#login">Enquire Now</a>
-    </button>
-    <button onclick="sendmessage()"
-      class="WhatsApp-btn bg-green-500 text-white p-4  shadow-lg hover:bg-green-700 transition mx-4">
-      <i class="fab fa-whatsapp px-2"></i>WhatsApp
-    </button>
+  <!-- Fixed Mobile Action Bar: 1 Row with 2 Full-Width Columns (Enquire Now & WhatsApp) -->
+  <div class="mobile-action-bar">
+    <div class="mobile-action-grid">
+      <!-- Column 1: Enquire Now Button (Full Width of Col 1) -->
+      <a href="#login" class="mobile-action-btn btn-enquire">
+        <i class="fas fa-phone-alt"></i>
+        <span>Enquire Now</span>
+      </a>
+
+      <!-- Column 2: WhatsApp Button (Full Width of Col 2) -->
+      <button type="button" onclick="sendmessage()" class="mobile-action-btn btn-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </button>
+    </div>
   </div>
+
+  <!-- Desktop Floating WhatsApp Widget (Pill Button at Bottom-Right) -->
+  <button type="button" onclick="sendmessage()" class="desktop-whatsapp-widget" aria-label="Chat with LushLens Studio on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </button>
 
 
 
@@ -1440,7 +1453,7 @@
 
   <!-- Ultra-Minimalist Camera Lens Themed Studio Footer -->
   <footer
-    class="camera-lens-footer w-full bg-[#0a0a0c] text-secondary py-8 px-4 sm:px-8 border-t border-third/20 relative overflow-hidden">
+    class="camera-lens-footer w-full bg-[#0a0a0c] text-secondary pt-8 pb-24 md:pb-8 px-4 sm:px-8 border-t border-third/20 relative overflow-hidden">
 
     <!-- Subtle Rotating Optical Lens Watermark -->
     <div class="lens-aperture-bg pointer-events-none opacity-5 absolute -right-12 -bottom-12 w-64 h-64">

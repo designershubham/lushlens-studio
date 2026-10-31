@@ -2611,3 +2611,146 @@ button:hover:after {
   letter-spacing: 0.05em;
 }
 
+/* ==========================================================================
+   Mobile Fixed Bottom Action Bar (1 Row with 2 Full-Width Columns)
+   ========================================================================== */
+.mobile-action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(13, 13, 17, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 14px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.65);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-action-bar {
+    display: none !important;
+  }
+}
+
+.mobile-action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.mobile-action-btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-action-btn::after {
+  display: none !important;
+}
+
+.mobile-action-btn:active {
+  transform: scale(0.97);
+}
+
+.mobile-action-btn.btn-enquire {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.mobile-action-btn.btn-enquire:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  color: #ffffff !important;
+}
+
+.mobile-action-btn.btn-enquire i {
+  font-size: 13px;
+}
+
+.mobile-action-btn.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #1eb957 100%);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.mobile-action-btn.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #20ba5a 0%, #189e4b 100%);
+  color: #ffffff !important;
+}
+
+.mobile-action-btn.btn-whatsapp i {
+  font-size: 17px;
+}
+
+/* Desktop Floating WhatsApp Button */
+.desktop-whatsapp-widget {
+  display: none;
+}
+
+.desktop-whatsapp-widget::after {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .desktop-whatsapp-widget {
+    display: inline-flex !important;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #25D366 0%, #1eb957 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+  }
+
+  .desktop-whatsapp-widget i {
+    font-size: 18px;
+  }
+
+  .desktop-whatsapp-widget:hover {
+    background: linear-gradient(135deg, #20ba5a 0%, #189e4b 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45), 0 6px 16px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+  }
+
+  .desktop-whatsapp-widget:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+
